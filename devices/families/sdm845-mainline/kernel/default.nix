@@ -1,18 +1,18 @@
 { mobile-nixos
-, fetchFromGitHub
+, lib 
 , fetchFromGitLab
 , ...
 }:
 
 mobile-nixos.kernel-builder rec {
-  version = "6.4.0";
+  version = "6.4.13";
   configfile = ./config.aarch64;
 
   src = fetchFromGitLab {
     owner = "sdm845-mainline";
     repo = "linux";
-    rev = "sdm845-6.4-r1";
-    hash = "sha256-XUYv8tOk0vsG11w8UtBKizlBZ03cbQ2QRGyZEK0ECGU=";
+    rev = "sdm845-${version}";
+    hash = "sha256-+LgToL1kqtjn1G8ayNpDumAGXgRu5EjI0MEx9eNazVg=";
   };
 
   isModular = false;
